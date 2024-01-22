@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://cttjhkf0jyr1p"]
+
+[ext_resource type="PackedScene" uid="uid://bseflc5p6qnqy" path="res://CharacterScenes/Players/base_player.tscn" id="1_el7uj"]
+[ext_resource type="Script" path="res://CharacterScenes/Players/MeleePlayer.cs" id="2_yex6g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tjniq"]
+size = Vector2(23, 43)
+
+[node name="BaseKnight" instance=ExtResource("1_el7uj")]
+script = ExtResource("2_yex6g")
+Speed = 290.0
+menuFilePath = "res://Levels/menu.tscn"
+
+[node name="HurtBox" type="Area2D" parent="Flip" index="1"]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flip/HurtBox" index="0"]
+position = Vector2(44.5, -3.5)
+shape = SubResource("RectangleShape2D_tjniq")
+
+[node name="HealthComponent" parent="." index="3"]
+maxHealth = 80
+
+[connection signal="animation_finished" from="Flip/AnimatedSprite2D" to="." method="AnimationFinished"]
+[connection signal="area_entered" from="Flip/HurtBox" to="." method="HurtBoxAreaEntered"]
+[connection signal="pressed" from="CloseButton" to="." method="OnClosedButtonPressed"]

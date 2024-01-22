@@ -1,0 +1,177 @@
+[gd_scene load_steps=31 format=3 uid="uid://dlsbk1nsuo8kw"]
+
+[ext_resource type="Script" path="res://CharacterScenes/Enemies/HellKnight.cs" id="1_hl6dl"]
+[ext_resource type="Texture2D" uid="uid://y3guhjd6edlj" path="res://Art/Monsters/Hell Knight/Knight_attack1.png" id="2_g5cne"]
+[ext_resource type="Texture2D" uid="uid://bje6a71snmwd" path="res://Art/Monsters/Hell Knight/Knight_attack2.png" id="3_7wk0k"]
+[ext_resource type="Texture2D" uid="uid://d0kughngwulqq" path="res://Art/Monsters/Hell Knight/Knight_attack3.png" id="4_qvr7s"]
+[ext_resource type="Texture2D" uid="uid://dbw7chvitw5h8" path="res://Art/Monsters/Hell Knight/Knight_attack4.png" id="5_ye41j"]
+[ext_resource type="Texture2D" uid="uid://bcjv0fktq7lul" path="res://Art/Monsters/Hell Knight/Knight_attack5.png" id="6_ktn25"]
+[ext_resource type="Texture2D" uid="uid://b2xkuv3bbanc1" path="res://Art/Monsters/Hell Knight/Knight_attack6.png" id="7_2ch7t"]
+[ext_resource type="Texture2D" uid="uid://bha8k7558s8jk" path="res://Art/Monsters/Hell Knight/Knight_death1.png" id="8_dvtqu"]
+[ext_resource type="Texture2D" uid="uid://cejti7pdhbkdi" path="res://Art/Monsters/Hell Knight/Knight_death2.png" id="9_trlge"]
+[ext_resource type="Texture2D" uid="uid://4yg7hl8tq6is" path="res://Art/Monsters/Hell Knight/Knight_death3.png" id="10_13a4d"]
+[ext_resource type="Texture2D" uid="uid://dle5bt3a4un7j" path="res://Art/Monsters/Hell Knight/Knight_death4.png" id="11_h65s3"]
+[ext_resource type="Texture2D" uid="uid://btknd0nkikqnp" path="res://Art/Monsters/Hell Knight/Knight_hurt1.png" id="12_mjk1j"]
+[ext_resource type="Texture2D" uid="uid://cd48nfemo0rsv" path="res://Art/Monsters/Hell Knight/Knight_hurt2.png" id="13_17slh"]
+[ext_resource type="Texture2D" uid="uid://cpwney58i24rg" path="res://Art/Monsters/Hell Knight/Knight_hurt3.png" id="14_v3u8k"]
+[ext_resource type="Texture2D" uid="uid://cay0hn12wh1gm" path="res://Art/Monsters/Hell Knight/Knight_idle1.png" id="15_k5a0n"]
+[ext_resource type="Texture2D" uid="uid://brmgsk0d7sbfo" path="res://Art/Monsters/Hell Knight/Knight_idle2.png" id="16_u4u13"]
+[ext_resource type="Texture2D" uid="uid://cg1nwksi51c5o" path="res://Art/Monsters/Hell Knight/Knight_idle3.png" id="17_x3ymm"]
+[ext_resource type="Texture2D" uid="uid://cvwryuddrsvsw" path="res://Art/Monsters/Hell Knight/Knight_walk1.png" id="18_ekcxx"]
+[ext_resource type="Texture2D" uid="uid://r2havi4ullg6" path="res://Art/Monsters/Hell Knight/Knight_walk2.png" id="19_igqd2"]
+[ext_resource type="Texture2D" uid="uid://bmpfierhwmq7a" path="res://Art/Monsters/Hell Knight/Knight_walk3.png" id="20_giw6y"]
+[ext_resource type="Texture2D" uid="uid://daefvmnysv41t" path="res://Art/Monsters/Hell Knight/Knight_walk4.png" id="21_ba0kx"]
+[ext_resource type="Texture2D" uid="uid://bujqde6q3pvkb" path="res://Art/Monsters/Hell Knight/Knight_walk5.png" id="22_14an0"]
+[ext_resource type="Texture2D" uid="uid://b3sxmyq8x3bes" path="res://Art/Monsters/Hell Knight/Knight_walk6.png" id="23_opec1"]
+[ext_resource type="PackedScene" uid="uid://wkdlcfqhlwky" path="res://Components/health_component.tscn" id="24_m88ai"]
+[ext_resource type="Texture2D" uid="uid://dsxi2qdf66bxi" path="res://Art/GameUi/16Inner_Interface/hp_full.png" id="25_nhh04"]
+[ext_resource type="PackedScene" uid="uid://2gcqpklkryyc" path="res://Components/hit_box_component.tscn" id="26_vrnse"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8uf52"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_g5cne")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7wk0k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qvr7s")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_ye41j")
+}, {
+"duration": 2.0,
+"texture": ExtResource("6_ktn25")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_2ch7t")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_dvtqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_trlge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_13a4d")
+}, {
+"duration": 3.0,
+"texture": ExtResource("11_h65s3")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_mjk1j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_17slh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_v3u8k")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_k5a0n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_u4u13")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_x3ymm")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_ekcxx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_igqd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_giw6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ba0kx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_14an0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_opec1")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lsuq0"]
+radius = 16.0
+height = 74.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_thay2"]
+size = Vector2(36, 36.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_728q1"]
+size = Vector2(50, 95)
+
+[node name="HellKnight" type="CharacterBody2D" groups=["mobs"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_hl6dl")
+atkDmg = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(39, -9)
+sprite_frames = SubResource("SpriteFrames_8uf52")
+animation = &"Attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 5)
+shape = SubResource("CapsuleShape2D_lsuq0")
+
+[node name="AttackBox" type="Area2D" parent="."]
+position = Vector2(49, 15)
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+position = Vector2(8, -5.25)
+shape = SubResource("RectangleShape2D_thay2")
+
+[node name="HealthComponent" parent="." instance=ExtResource("24_m88ai")]
+position = Vector2(-42, -58)
+scale = Vector2(0.8, 0.8)
+maxHealth = 30
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthComponent"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_progress = ExtResource("25_nhh04")
+
+[node name="HitBoxComponent" parent="." node_paths=PackedStringArray("health") instance=ExtResource("26_vrnse")]
+collision_layer = 2
+health = NodePath("../HealthComponent")
+immunityTime = 1.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(-1, 4.5)
+shape = SubResource("RectangleShape2D_728q1")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="AnimationFinished"]
+[connection signal="area_entered" from="AttackBox" to="." method="OnAttackBoxEntered"]

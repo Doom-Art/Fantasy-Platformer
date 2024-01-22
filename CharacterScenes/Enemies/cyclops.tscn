@@ -1,0 +1,167 @@
+[gd_scene load_steps=27 format=3 uid="uid://ejocd337dw7y"]
+
+[ext_resource type="Script" path="res://CharacterScenes/Enemies/HellKnight.cs" id="1_yfu7y"]
+[ext_resource type="Texture2D" uid="uid://g1icgpnc0oeh" path="res://Art/Monsters/Orc/Attack1.png" id="2_sw3c6"]
+[ext_resource type="Texture2D" uid="uid://isep6kuht3v7" path="res://Art/Monsters/Orc/Attack2.png" id="3_i180d"]
+[ext_resource type="Texture2D" uid="uid://bojhje1yo7te1" path="res://Art/Monsters/Orc/Attack3.png" id="4_y566k"]
+[ext_resource type="Texture2D" uid="uid://b85q78onj4ao" path="res://Art/Monsters/Orc/Attack4.png" id="5_60lm7"]
+[ext_resource type="Texture2D" uid="uid://kakf24jr1syk" path="res://Art/Monsters/Orc/Death1.png" id="6_vb6du"]
+[ext_resource type="Texture2D" uid="uid://173rodsc4juc" path="res://Art/Monsters/Orc/Death2.png" id="7_compo"]
+[ext_resource type="Texture2D" uid="uid://cthygtesw0ysq" path="res://Art/Monsters/Orc/Death3.png" id="8_anxft"]
+[ext_resource type="Texture2D" uid="uid://bejtiu86qmtyp" path="res://Art/Monsters/Orc/Death4.png" id="9_a8r3p"]
+[ext_resource type="Texture2D" uid="uid://dm7grg3je86a8" path="res://Art/Monsters/Orc/Death5.png" id="10_n7d0v"]
+[ext_resource type="Texture2D" uid="uid://bedljji224uy2" path="res://Art/Monsters/Orc/Death6.png" id="11_q268u"]
+[ext_resource type="Texture2D" uid="uid://dufqd74ki504u" path="res://Art/Monsters/Orc/Hurt1.png" id="12_it7pd"]
+[ext_resource type="Texture2D" uid="uid://ddiqjkt74f3v1" path="res://Art/Monsters/Orc/Hurt2.png" id="13_fvmpo"]
+[ext_resource type="Texture2D" uid="uid://038ae0jncsas" path="res://Art/Monsters/Orc/Walk1.png" id="14_3ir46"]
+[ext_resource type="Texture2D" uid="uid://0xavqy28v08f" path="res://Art/Monsters/Orc/Walk2.png" id="15_wro1r"]
+[ext_resource type="Texture2D" uid="uid://crg0ia2qqvrvr" path="res://Art/Monsters/Orc/Walk3.png" id="16_xjdgr"]
+[ext_resource type="Texture2D" uid="uid://cy4l18lhsa7cv" path="res://Art/Monsters/Orc/Walk4.png" id="17_fa8tu"]
+[ext_resource type="Texture2D" uid="uid://dhbmgil40aew3" path="res://Art/Monsters/Orc/Walk5.png" id="18_hd75c"]
+[ext_resource type="Texture2D" uid="uid://cb2l1fefexkad" path="res://Art/Monsters/Orc/Walk6.png" id="19_movap"]
+[ext_resource type="PackedScene" uid="uid://wkdlcfqhlwky" path="res://Components/health_component.tscn" id="20_vjirn"]
+[ext_resource type="Texture2D" uid="uid://dsxi2qdf66bxi" path="res://Art/GameUi/16Inner_Interface/hp_full.png" id="21_r442k"]
+[ext_resource type="PackedScene" uid="uid://2gcqpklkryyc" path="res://Components/hit_box_component.tscn" id="22_1ouij"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rj4aa"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sw3c6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("3_i180d")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_y566k")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_60lm7")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_vb6du")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_compo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_anxft")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_a8r3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_n7d0v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_q268u")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_it7pd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_fvmpo")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_3ir46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_wro1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xjdgr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_fa8tu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_hd75c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_movap")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1bg6"]
+radius = 28.0
+height = 96.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dqgc"]
+size = Vector2(44, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ffnya"]
+size = Vector2(79, 107)
+
+[node name="Cyclops" type="CharacterBody2D" groups=["mobs"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_yfu7y")
+Speed = 90.0
+JumpHeight = -400.0
+atkDmg = 30
+maxRange = 90
+atkLag = 0.2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(31, -11)
+sprite_frames = SubResource("SpriteFrames_rj4aa")
+animation = &"Attack"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_g1bg6")
+
+[node name="AttackBox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+position = Vector2(78, 2)
+shape = SubResource("RectangleShape2D_0dqgc")
+
+[node name="HealthComponent" parent="." instance=ExtResource("20_vjirn")]
+position = Vector2(-74, -57)
+maxHealth = 30
+
+[node name="HP" type="Sprite2D" parent="HealthComponent"]
+visible = false
+texture = ExtResource("21_r442k")
+centered = false
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthComponent"]
+offset_left = 13.0
+offset_top = -9.0
+offset_right = 124.0
+offset_bottom = 31.0
+max_value = 15.0
+value = 15.0
+texture_progress = ExtResource("21_r442k")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("22_1ouij")]
+collision_layer = 2
+collision_mask = 0
+immunityTime = 1.2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(-1.5, 0)
+shape = SubResource("RectangleShape2D_ffnya")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="AnimationFinished"]
+[connection signal="area_entered" from="AttackBox" to="." method="OnAttackBoxEntered"]

@@ -1,0 +1,83 @@
+[gd_scene load_steps=12 format=3 uid="uid://bseflc5p6qnqy"]
+
+[ext_resource type="PackedScene" uid="uid://2gcqpklkryyc" path="res://Components/hit_box_component.tscn" id="1_vfetj"]
+[ext_resource type="Texture2D" uid="uid://omcs640i3jj8" path="res://Art/GameUi/06Level_select/x_button.png" id="2_uas51"]
+[ext_resource type="PackedScene" uid="uid://wkdlcfqhlwky" path="res://Components/health_component.tscn" id="2_ynkmu"]
+[ext_resource type="Texture2D" uid="uid://cln8ja3u3xxqb" path="res://Art/GameUi/16Inner_Interface/hp_bar_full.png" id="3_4xt4t"]
+[ext_resource type="Texture2D" uid="uid://dd6hsujys88ol" path="res://Art/Objects/Coin/coin1.png" id="3_mlbx1"]
+[ext_resource type="FontFile" uid="uid://17l0u1bvu0je" path="res://Fonts/SmackyFormula.ttf" id="4_4l3t0"]
+[ext_resource type="Texture2D" uid="uid://dsxi2qdf66bxi" path="res://Art/GameUi/16Inner_Interface/hp_full.png" id="4_gprty"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pm86d"]
+radius = 18.0
+height = 54.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_havvm"]
+radius = 18.0
+height = 54.0
+
+[sub_resource type="InputEventKey" id="InputEventKey_k6se8"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_m2evy"]
+events = [SubResource("InputEventKey_k6se8")]
+
+[node name="BasePlayer" type="CharacterBody2D" groups=["player"]]
+z_index = 1
+collision_mask = 6
+
+[node name="Flip" type="Node2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Flip"]
+position = Vector2(19, -21)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_pm86d")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -120)
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_ynkmu")]
+position = Vector2(-434, -401)
+scale = Vector2(2, 2)
+maxHealth = 50
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthComponent"]
+offset_left = -63.5
+offset_top = -12.0
+offset_right = 63.5
+offset_bottom = 28.0
+value = 100.0
+texture_under = ExtResource("3_4xt4t")
+texture_progress = ExtResource("4_gprty")
+texture_progress_offset = Vector2(8, 3.5)
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("1_vfetj")]
+immunityTime = 1.4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+shape = SubResource("CapsuleShape2D_havvm")
+
+[node name="CloseButton" type="TextureButton" parent="."]
+offset_left = 502.0
+offset_top = -423.0
+offset_right = 530.0
+offset_bottom = -395.0
+scale = Vector2(2, 2)
+shortcut = SubResource("Shortcut_m2evy")
+shortcut_in_tooltip = false
+texture_normal = ExtResource("2_uas51")
+
+[node name="Coin" type="Sprite2D" parent="."]
+position = Vector2(-541, -357)
+texture = ExtResource("3_mlbx1")
+
+[node name="Label" type="Label" parent="Coin"]
+offset_left = 10.0
+offset_top = -16.0
+offset_right = 57.0
+offset_bottom = 14.0
+theme_override_fonts/font = ExtResource("4_4l3t0")
+theme_override_font_sizes/font_size = 25
+text = " = 1"

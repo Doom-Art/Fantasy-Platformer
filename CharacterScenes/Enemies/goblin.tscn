@@ -1,0 +1,159 @@
+[gd_scene load_steps=27 format=3 uid="uid://6vd5iovwjvoi"]
+
+[ext_resource type="Script" path="res://CharacterScenes/Enemies/HellKnight.cs" id="1_1brku"]
+[ext_resource type="Texture2D" uid="uid://bh8x1o37w7amc" path="res://Art/Monsters/goblin/attack1.png" id="2_ymq6y"]
+[ext_resource type="Texture2D" uid="uid://bft7yvf0fwtil" path="res://Art/Monsters/goblin/attack2.png" id="3_o4lic"]
+[ext_resource type="Texture2D" uid="uid://clk13hii60sr2" path="res://Art/Monsters/goblin/attack3.png" id="4_5lvsp"]
+[ext_resource type="Texture2D" uid="uid://csq0bg7vk1kc6" path="res://Art/Monsters/goblin/attack4.png" id="5_f2hp3"]
+[ext_resource type="Texture2D" uid="uid://buhqlvy784vk4" path="res://Art/Monsters/goblin/attack5.png" id="6_fi5pe"]
+[ext_resource type="Texture2D" uid="uid://duv5jp40yjkuh" path="res://Art/Monsters/goblin/death1.png" id="7_qp8yg"]
+[ext_resource type="Texture2D" uid="uid://ckl83o7rk4336" path="res://Art/Monsters/goblin/death2.png" id="8_onl31"]
+[ext_resource type="Texture2D" uid="uid://duwfsla5yua4o" path="res://Art/Monsters/goblin/death3.png" id="9_sxj6c"]
+[ext_resource type="Texture2D" uid="uid://qpqbo3k84arn" path="res://Art/Monsters/goblin/death4.png" id="10_edxbw"]
+[ext_resource type="Texture2D" uid="uid://duoilmqxir64f" path="res://Art/Monsters/goblin/hurt1.png" id="11_wru11"]
+[ext_resource type="Texture2D" uid="uid://cfbiemao08owj" path="res://Art/Monsters/goblin/hurt2.png" id="12_7fq36"]
+[ext_resource type="Texture2D" uid="uid://c4vdfkgyxhq3h" path="res://Art/Monsters/goblin/hurt3.png" id="13_lijgr"]
+[ext_resource type="Texture2D" uid="uid://dgbsydk0ifxtd" path="res://Art/Monsters/goblin/walk1.png" id="14_q3qao"]
+[ext_resource type="Texture2D" uid="uid://dgb7en6t4v2jm" path="res://Art/Monsters/goblin/walk2.png" id="15_qhlsy"]
+[ext_resource type="Texture2D" uid="uid://blrha8nh8ic2d" path="res://Art/Monsters/goblin/walk3.png" id="16_1cefk"]
+[ext_resource type="Texture2D" uid="uid://bcrw7avn413vs" path="res://Art/Monsters/goblin/walk4.png" id="17_i5r31"]
+[ext_resource type="Texture2D" uid="uid://cy30vjvjkjyf8" path="res://Art/Monsters/goblin/walk5.png" id="18_7t6p7"]
+[ext_resource type="Texture2D" uid="uid://cg2fjg013b3f2" path="res://Art/Monsters/goblin/walk6.png" id="19_eheeu"]
+[ext_resource type="PackedScene" uid="uid://wkdlcfqhlwky" path="res://Components/health_component.tscn" id="20_bljkb"]
+[ext_resource type="Texture2D" uid="uid://dsxi2qdf66bxi" path="res://Art/GameUi/16Inner_Interface/hp_full.png" id="21_22shd"]
+[ext_resource type="PackedScene" uid="uid://2gcqpklkryyc" path="res://Components/hit_box_component.tscn" id="22_2d87l"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3aya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ymq6y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_o4lic")
+}, {
+"duration": 2.0,
+"texture": ExtResource("4_5lvsp")
+}, {
+"duration": 2.0,
+"texture": ExtResource("5_f2hp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_fi5pe")
+}],
+"loop": false,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qp8yg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_onl31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_sxj6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_edxbw")
+}],
+"loop": false,
+"name": &"Death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_wru11")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7fq36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_lijgr")
+}],
+"loop": false,
+"name": &"Hurt",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_q3qao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qhlsy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_1cefk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_i5r31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7t6p7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_eheeu")
+}],
+"loop": true,
+"name": &"Walk",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qqvem"]
+radius = 13.0
+height = 50.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wy1u3"]
+size = Vector2(20, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2e8vl"]
+size = Vector2(45, 48)
+
+[node name="Goblin" type="CharacterBody2D" groups=["mobs"]]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_1brku")
+Speed = 230.0
+JumpHeight = -580.0
+atkDmg = 6
+maxRange = 55
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o3aya")
+animation = &"Attack"
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-5, 0)
+shape = SubResource("CapsuleShape2D_qqvem")
+
+[node name="AttackBox" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackBox"]
+position = Vector2(42, -12)
+shape = SubResource("RectangleShape2D_wy1u3")
+
+[node name="HealthComponent" parent="." instance=ExtResource("20_bljkb")]
+position = Vector2(-52, -41)
+scale = Vector2(0.8, 0.8)
+maxHealth = 13
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthComponent"]
+offset_right = 40.0
+offset_bottom = 40.0
+max_value = 13.0
+value = 13.0
+texture_progress = ExtResource("21_22shd")
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("22_2d87l")]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+position = Vector2(-6.5, 0)
+shape = SubResource("RectangleShape2D_2e8vl")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="AnimationFinished"]
+[connection signal="area_entered" from="AttackBox" to="." method="OnAttackBoxEntered"]

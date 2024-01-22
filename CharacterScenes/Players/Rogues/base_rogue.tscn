@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmmntcahqi45v"]
+
+[ext_resource type="PackedScene" uid="uid://bseflc5p6qnqy" path="res://CharacterScenes/Players/base_player.tscn" id="1_hpo0c"]
+[ext_resource type="Script" path="res://CharacterScenes/Players/MeleePlayer.cs" id="2_jyc6b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynrhg"]
+size = Vector2(19, 38.5)
+
+[node name="BaseRougue" instance=ExtResource("1_hpo0c")]
+script = ExtResource("2_jyc6b")
+menuFilePath = "res://Levels/menu.tscn"
+
+[node name="HurtBox" type="Area2D" parent="Flip" index="1"]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Flip/HurtBox" index="0"]
+position = Vector2(28.5, -4.75)
+shape = SubResource("RectangleShape2D_ynrhg")
+
+[node name="HitBoxComponent" parent="." index="4" node_paths=PackedStringArray("health")]
+health = NodePath("../HealthComponent")
+immunityTime = 1.2
+
+[connection signal="animation_finished" from="Flip/AnimatedSprite2D" to="." method="AnimationFinished"]
+[connection signal="area_entered" from="Flip/HurtBox" to="." method="HurtBoxAreaEntered"]
+[connection signal="pressed" from="CloseButton" to="." method="OnClosedButtonPressed"]

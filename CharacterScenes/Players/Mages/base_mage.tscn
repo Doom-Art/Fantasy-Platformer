@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2u4welalmpk7"]
+
+[ext_resource type="PackedScene" uid="uid://bseflc5p6qnqy" path="res://CharacterScenes/Players/base_player.tscn" id="1_gpgwe"]
+[ext_resource type="Script" path="res://CharacterScenes/Players/Mages/MagePlayer.cs" id="2_rkety"]
+
+[node name="BaseMage" instance=ExtResource("1_gpgwe")]
+script = ExtResource("2_rkety")
+attackDmg = 9
+
+[node name="Marker2D" type="Marker2D" parent="Flip" index="1"]
+position = Vector2(27, 0)
