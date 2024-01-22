@@ -1,0 +1,187 @@
+[gd_scene load_steps=16 format=3 uid="uid://db8oe0j1bp7wg"]
+
+[ext_resource type="Texture2D" uid="uid://2jrtljmv4e6m" path="res://Art/GameUi/02character/home_buttons.png" id="1_7ebov"]
+[ext_resource type="Script" path="res://Levels/character_selection.cs" id="1_tyvqj"]
+[ext_resource type="Texture2D" uid="uid://c2ok11aejqnkc" path="res://Art/GameUi/02character/char_bg.png" id="2_k5c2n"]
+[ext_resource type="Texture2D" uid="uid://cbr47wjvknv0t" path="res://Art/GameUi/02character/shadow.png" id="3_qvtdl"]
+[ext_resource type="Texture2D" uid="uid://bu281qo7ur8bd" path="res://Art/GameUi/02character/char_sell.png" id="4_4xh3u"]
+[ext_resource type="Texture2D" uid="uid://dq8uoreoml8in" path="res://Art/Icons/con9.png" id="5_vj8td"]
+[ext_resource type="Texture2D" uid="uid://btbj3ralkp1pi" path="res://Art/PixelArtCharacters/Ninja/rogue.png" id="6_4phso"]
+[ext_resource type="Texture2D" uid="uid://28yarmp0l5f0" path="res://Art/Icons/con1.png" id="7_phq6j"]
+[ext_resource type="Texture2D" uid="uid://cbeo1kiql2gms" path="res://Art/PixelArtCharacters/SilverKnight/knight.png" id="9_eetmd"]
+[ext_resource type="Texture2D" uid="uid://dsxi2qdf66bxi" path="res://Art/GameUi/16Inner_Interface/hp_full.png" id="10_ygcsx"]
+[ext_resource type="Texture2D" uid="uid://dkolwj1tcmycp" path="res://Art/GameUi/17Icons/brown_stroke/heart_stroke.png" id="11_ukg71"]
+[ext_resource type="Texture2D" uid="uid://bsr6aj507djfr" path="res://Art/GameUi/16Inner_Interface/stamina_full_bar.png" id="12_ev8tf"]
+[ext_resource type="Texture2D" uid="uid://dqawhsotl4op7" path="res://Art/GameUi/17Icons/brown_stroke/speed_stroke.png" id="13_wj8pe"]
+[ext_resource type="Texture2D" uid="uid://u5ic4npe0m1a" path="res://Art/GameUi/16Inner_Interface/energy_full_bar.png" id="14_lt5na"]
+[ext_resource type="Texture2D" uid="uid://brogsga3ercjh" path="res://Art/GameUi/17Icons/brown_stroke/power_stroke.png" id="15_d5p7b"]
+
+[node name="CharacterSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_tyvqj")
+NextPath = "res://Levels/menu.tscn"
+Char1 = "res://CharacterScenes/Players/Rogues/ninja.tscn"
+Char2 = "res://CharacterScenes/Players/Knights/silver_knight.tscn"
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 20.0
+offset_right = 76.0
+offset_bottom = 86.0
+texture_normal = ExtResource("1_7ebov")
+
+[node name="CharBg" type="Sprite2D" parent="."]
+position = Vector2(639.333, 208.667)
+texture = ExtResource("2_k5c2n")
+
+[node name="Shadow" type="Sprite2D" parent="."]
+position = Vector2(630, 172.667)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("3_qvtdl")
+
+[node name="CharButtons" type="Node" parent="."]
+
+[node name="Ninja" type="TextureButton" parent="CharButtons"]
+offset_left = 150.0
+offset_top = 50.0
+offset_right = 239.0
+offset_bottom = 140.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="Icon" type="Sprite2D" parent="CharButtons/Ninja"]
+position = Vector2(45, 45)
+texture = ExtResource("5_vj8td")
+
+[node name="Preview" type="Sprite2D" parent="CharButtons/Ninja"]
+visible = false
+position = Vector2(574, 60)
+scale = Vector2(2, 2)
+texture = ExtResource("6_4phso")
+region_rect = Rect2(0, 0, 128, 128)
+
+[node name="Silver" type="TextureButton" parent="CharButtons"]
+offset_left = 370.0
+offset_top = 50.0
+offset_right = 459.0
+offset_bottom = 140.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="Icon" type="Sprite2D" parent="CharButtons/Silver"]
+position = Vector2(45, 45)
+texture = ExtResource("7_phq6j")
+
+[node name="Preview" type="Sprite2D" parent="CharButtons/Silver"]
+visible = false
+position = Vector2(423.333, 49.6667)
+scale = Vector2(2, 2)
+texture = ExtResource("9_eetmd")
+
+[node name="CharButton3" type="TextureButton" parent="CharButtons"]
+offset_left = 600.0
+offset_top = 50.0
+offset_right = 689.0
+offset_bottom = 140.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="CharButton4" type="TextureButton" parent="CharButtons"]
+offset_left = 150.0
+offset_top = 230.0
+offset_right = 239.0
+offset_bottom = 320.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="CharButton5" type="TextureButton" parent="CharButtons"]
+offset_left = 370.0
+offset_top = 230.0
+offset_right = 459.0
+offset_bottom = 320.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="CharButton6" type="TextureButton" parent="CharButtons"]
+offset_left = 600.0
+offset_top = 230.0
+offset_right = 689.0
+offset_bottom = 320.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="CharButton7" type="TextureButton" parent="CharButtons"]
+offset_left = 150.0
+offset_top = 410.0
+offset_right = 239.0
+offset_bottom = 500.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="CharButton8" type="TextureButton" parent="CharButtons"]
+offset_left = 370.0
+offset_top = 410.0
+offset_right = 459.0
+offset_bottom = 500.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="CharButton9" type="TextureButton" parent="CharButtons"]
+offset_left = 600.0
+offset_top = 410.0
+offset_right = 689.0
+offset_bottom = 500.0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("4_4xh3u")
+
+[node name="Health" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 210.0
+offset_right = 711.0
+offset_bottom = 250.0
+value = 80.0
+texture_progress = ExtResource("10_ygcsx")
+
+[node name="HeartStroke" type="Sprite2D" parent="Health"]
+position = Vector2(-30, 10)
+texture = ExtResource("11_ukg71")
+
+[node name="Speed" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 260.0
+offset_right = 687.0
+offset_bottom = 300.0
+value = 33.0
+texture_progress = ExtResource("12_ev8tf")
+
+[node name="SpeedStroke" type="Sprite2D" parent="Speed"]
+position = Vector2(-30, 10)
+texture = ExtResource("13_wj8pe")
+
+[node name="Attack" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 600.0
+offset_top = 310.0
+offset_right = 687.0
+offset_bottom = 350.0
+value = 88.0
+texture_progress = ExtResource("14_lt5na")
+
+[node name="PowerStroke" type="Sprite2D" parent="Attack"]
+position = Vector2(-30, 10)
+texture = ExtResource("15_d5p7b")
+
+[connection signal="pressed" from="Play" to="." method="NextScreen"]
+[connection signal="pressed" from="CharButtons/Ninja" to="." method="Char1Select"]
+[connection signal="pressed" from="CharButtons/Silver" to="." method="Char2Select"]

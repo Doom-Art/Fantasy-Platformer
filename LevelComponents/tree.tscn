@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://dpspyv66xnvov"]
+
+[ext_resource type="Texture2D" uid="uid://cy7mq8ctg7mta" path="res://Art/Objects/tree.png" id="1_rudfd"]
+[ext_resource type="PackedScene" uid="uid://2gcqpklkryyc" path="res://Components/hit_box_component.tscn" id="2_m5tqb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mmhm5"]
+size = Vector2(84, 150)
+
+[node name="Tree" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+
+[node name="Tree" type="Sprite2D" parent="."]
+texture = ExtResource("1_rudfd")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(13, -80, 86, 6, 60, 21, 13, 22, 4, 75, -11, 75, -20, 22, -77, 20, -77, -11, -25, -81)
+
+[node name="HitBoxComponent" parent="." instance=ExtResource("2_m5tqb")]
+collision_layer = 12
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+shape = SubResource("RectangleShape2D_mmhm5")

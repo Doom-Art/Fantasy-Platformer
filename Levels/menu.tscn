@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://bfnyr0uv3smwy"]
+
+[ext_resource type="Script" path="res://Levels/Menu.cs" id="1_taxcf"]
+[ext_resource type="Texture2D" uid="uid://3c238cqg6b4o" path="res://Art/GameUi/01main/bg.png" id="2_5hl0t"]
+[ext_resource type="Texture2D" uid="uid://5i3nq0g50hlv" path="res://Art/GameUi/01main/platform.png" id="3_pbxcg"]
+[ext_resource type="Texture2D" uid="uid://3a4mo5xseu04" path="res://Art/GameUi/01main/characters.png" id="4_u8t0q"]
+[ext_resource type="Texture2D" uid="uid://cjyfpn248su8" path="res://Art/GameUi/01main/settings_button.png" id="5_0j4jm"]
+[ext_resource type="Texture2D" uid="uid://ca5rrcr7gjwvh" path="res://Art/GameUi/03potions/forward_button.png" id="6_0j22p"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_taxcf")
+LevelSelect = "res://Levels/level_selection.tscn"
+CharacterSelect = "res://Levels/character_selection.tscn"
+
+[node name="Bg" type="Sprite2D" parent="."]
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("2_5hl0t")
+centered = false
+
+[node name="Platform" type="Sprite2D" parent="."]
+position = Vector2(560, 412)
+texture = ExtResource("3_pbxcg")
+
+[node name="Characters" type="Sprite2D" parent="."]
+position = Vector2(560, 290)
+texture = ExtResource("4_u8t0q")
+
+[node name="Play" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 516.0
+offset_top = 483.0
+offset_right = 582.0
+offset_bottom = 549.0
+texture_normal = ExtResource("6_0j22p")
+
+[node name="Settings" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1069.0
+offset_top = 7.0
+offset_right = 1135.0
+offset_bottom = 73.0
+texture_normal = ExtResource("5_0j4jm")
+
+[connection signal="pressed" from="Play" to="." method="OnPlayPressed"]
+[connection signal="pressed" from="Settings" to="." method="OnSettingsPressed"]
